@@ -39,6 +39,12 @@
           <version>1.18.30</version>
           <scope>provided</scope>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/junit/junit -->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.13.2</version>
+      </dependency>
 
       <!-- FMS DEPENDENCIES END -->
 
@@ -51,7 +57,6 @@
       <groupId>javax.persistence</groupId>
       <artifactId>javax.persistence-api</artifactId>
       <version>2.2</version>
-      <scope>provided</scope>
     </dependency><dependency>
       <groupId>javax.security.enterprise</groupId>
       <artifactId>javax.security.enterprise-api</artifactId>
