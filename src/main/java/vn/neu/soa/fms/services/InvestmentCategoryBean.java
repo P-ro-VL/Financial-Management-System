@@ -28,14 +28,5 @@ public class InvestmentCategoryBean {
             entityManager.merge(investmentCategory);
         }
     }
-    public void deleteInvestmentCategory(String investmentCode) {
-        InvestmentCategory investmentCategory = entityManager.find(InvestmentCategory.class, investmentCode);
-        if (investmentCategory != null) {
-            entityManager.remove(investmentCategory);
-        }
-    }
-
-    public List<InvestmentCategory> getAllInvestmentCategories() {
-        return entityManager.createQuery("SELECT ic FROM InvestmentCategory ic", InvestmentCategory.class).getResultList();
-    }
+    
 }
