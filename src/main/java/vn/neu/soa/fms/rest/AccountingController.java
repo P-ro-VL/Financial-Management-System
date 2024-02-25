@@ -1,5 +1,8 @@
 package vn.neu.soa.fms.rest;
 
+import junit.framework.TestResult;
+import vn.neu.soa.fms.Test;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -8,6 +11,7 @@ public class AccountingController {
 
     @GET
     public String temp() {
-        return "chao ban <3";
+        TestResult result = Test.test();
+        return result.wasSuccessful() + "";
     }
 }
