@@ -1,44 +1,37 @@
 package vn.neu.soa.fms.services;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import vn.neu.soa.fms.impl.accounting.AccountingBook;
+import vn.neu.soa.fms.impl.accounting.AccountingRecord;
+
+import javax.ejb.Stateful;
+
+@Stateful
 public class AccountingService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private AccountingBook manager = new AccountingBook();
 
-    private AccountingBookManager manager = new AccountingBookManager();
-
-    public AccountingBookManager getManager() {
+    public AccountingBook getManager() {
         return manager;
     }
 
-    // Thêm mục sổ kế toán mới
-    public void addAccountingBook(AccountingBook book) {
+    public void addAccountingRecord(AccountingRecord book) {
         manager.add(book);
-        entityManager.persist(book); // Lưu vào database
     }
 
-    // Cập nhật mục sổ kế toán đã tồn tại
-    public void updateAccountingBook(int id, AccountingBook newInfo) {
-        AccountingBook book = getAccountingBook(id);
+    public void updateAccountingRecord(int id, AccountingRecord newInfo) {
+        AccountingRecord book = getAccountingRecord(id);
         book.setDate(newInfo.getDate());
         book.setReferenceCode(newInfo.getReferenceCode());
         book.setDescription(newInfo.getDescription());
         book.setDebit(newInfo.getDebit());
         book.setCredit(newInfo.getCredit());
-        entityManager.merge(book); // Cập nhật vào database
     }
 
-    // Xóa một mục sổ kế toán
-    public void deleteAccountingBook(int bookId) {
+    public void deleteAccountingRecord(int bookId) {
         manager.removeByID(bookId + "");
-        AccountingBook book = getAccountingBook(bookId);
-        entityManager.remove(book); // Xóa khỏi database
+        AccountingRecord book = getAccountingRecord(bookId);
     }
 
-    // Truy vấn thông tin của một mục sổ kế toán
-    public AccountingBook getAccountingBook(int bookId) {
+    public AccountingRecord getAccountingRecord(int bookId) {
         return manager.getFirstWhere((book) -> (book.getId() == bookId)).get();
     }
 }

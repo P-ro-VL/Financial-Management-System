@@ -1,7 +1,7 @@
-package vn.neu.soa.fms.services;
-import java.io.Serializable;
+package vn.neu.soa.fms.impl.accounting;
+
 import java.util.Date;
-public class AccountingBook {
+public class AccountingRecord {
     private int id;
     private Date date;
     private String referenceCode;
@@ -10,7 +10,7 @@ public class AccountingBook {
     private double debit;
     private double credit;
 
-    public AccountingBook(int id, Date date, String referenceCode, Date referenceDate, String description, double debit, double credit) {
+    public AccountingRecord(int id, Date date, String referenceCode, Date referenceDate, String description, double debit, double credit) {
         this.id = id;
         this.date = date;
         this.referenceCode = referenceCode;
