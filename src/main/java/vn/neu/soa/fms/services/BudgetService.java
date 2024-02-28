@@ -1,10 +1,11 @@
 package vn.neu.soa.fms.services;
+import vn.neu.soa.fms.impl.budget.Budget;
+import vn.neu.soa.fms.impl.budget.BudgetManager;
+
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @Stateless
-public class BudgetManagerBean {
+public class BudgetService {
 
     private BudgetManager entityManager = new BudgetManager();
 

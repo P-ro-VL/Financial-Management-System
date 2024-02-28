@@ -1,4 +1,4 @@
-package vn.neu.soa.fms.services;
+package vn.neu.soa.fms.impl.budget;
 
 import vn.neu.soa.fms.api.Manager;
 
@@ -51,5 +51,6 @@ public class BudgetManager implements Manager<Budget> {
     public Optional<Budget> getFirstWhere(Predicate<Budget> predicate) {
         return budgets.stream().filter(predicate).findFirst();
     }
+
 }
 
