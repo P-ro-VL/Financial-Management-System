@@ -21,17 +21,16 @@ public class BudgetService {
     //Cập nhật ngân sách đã tồn tại
     public void updateBudget(int id, Budget newInfo) {
         Budget budget = getBudget(id);
-        budget.setCategory(newInfo.getCategory());
-        budget.setAmount(newInfo.getAmount());
+        budget.setType(newInfo.getType());
+        budget.setName(newInfo.getName());
+        budget.setExpectedAmount(newInfo.getExpectedAmount());
+        budget.setSpentAmount(newInfo.getSpentAmount());
     }
 
-
-    //Xoá một ngân sách
     public void deleteBudget(int budgetId) {
         entityManager.removeByID(budgetId + "");
     }
 
-    //Truy vấn thông tin của một ngân sách
     public Budget getBudget(int budgetId) {
         return entityManager.getFirstWhere((budget) -> (budget.getBudgetId() == budgetId)).get();
     }
